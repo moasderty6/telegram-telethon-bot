@@ -11,7 +11,7 @@ WORKDIR /app
 COPY . /app
 
 # تثبيت مكتبات بايثون المطلوبة
-RUN pip install selenium
+RUN pip install telethon
 
 # تعيين متغير بيئة لموقع كروم
 ENV CHROME_BIN=/usr/bin/chromium
