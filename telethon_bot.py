@@ -10,6 +10,6 @@ client = TelegramClient('session', api_id, api_hash)
 async def handler(event):
     await event.reply('🤖 البوت يعمل تلقائيًا على Render!')
 
-client.start()
+client.connect()
 print("✅ Bot is running...")
 client.run_until_disconnected()
