@@ -16,4 +16,4 @@ RUN pip install selenium
 # تعيين متغير بيئة لموقع كروم
 ENV CHROME_BIN=/usr/bin/chromium
 
-CMD ["python", "bot_clicker.py"]
+CMD ["python", "telethon_bot.py"]
