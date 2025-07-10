@@ -1,19 +1,16 @@
 FROM python:3.11-slim
 
-# تثبيت متطلبات النظام
-RUN apt-get update && apt-get install -y \
-    chromium-driver \
-    chromium \
-    && rm -rf /var/lib/apt/lists/*
+# تثبيت المتطلبات
+RUN apt-get update && apt-get install -y chromium-driver chromium && rm -rf /var/lib/apt/lists/*
 
-# نسخ ملفات المشروع
 WORKDIR /app
 COPY . /app
 
-# تثبيت مكتبات بايثون المطلوبة
-RUN pip install telethon
+# تثبيت المكتبات
+RUN pip install selenium telethon flask
 
-# تعيين متغير بيئة لموقع كروم
-ENV CHROME_BIN=/usr/bin/chromium
+# إضافة Flask وهمي فقط لفتح منفذ
+EXPOSE 10000
 
-CMD ["python", "telethon_bot.py"]
+# سكربت Flask + البوت
+CMD ["python", "start.py"]
